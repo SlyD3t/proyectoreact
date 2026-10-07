@@ -156,7 +156,7 @@ function Davinci() {
                             <div className="text-center">
 
                                 <img
-                                    src="/inicio.jpg"
+                                    src="/proyectoreact/inicio.jpg"
                                     className="img-fluid rounded shadow davinci-main-image"
                                     alt="Pantalla inicial de DaVinci Resolve"
                                 />
@@ -182,7 +182,7 @@ function Davinci() {
                                     <div className="card davinci-image-card h-100">
 
                                         <img
-                                            src="/edit.jpg"
+                                            src="/proyectoreact/edit.jpg"
                                             className="card-img-top"
                                             alt="Página Edit de DaVinci Resolve"
                                         />
@@ -209,7 +209,7 @@ function Davinci() {
                                     <div className="card davinci-image-card h-100">
 
                                         <img
-                                            src="/color.jpg"
+                                            src="/proyectoreact/color.jpg"
                                             className="card-img-top"
                                             alt="Página Color de DaVinci Resolve"
                                         />
@@ -236,7 +236,7 @@ function Davinci() {
                                     <div className="card davinci-image-card h-100">
 
                                         <img
-                                            src="/fusion.jpg"
+                                            src="/proyectoreact/fusion.jpg"
                                             className="card-img-top"
                                             alt="Página Fusion de DaVinci Resolve"
                                         />
@@ -263,7 +263,7 @@ function Davinci() {
                                     <div className="card davinci-image-card h-100">
 
                                         <img
-                                            src=""
+                                            src="/proyectoreact/fairlight.jpg"
                                             className="card-img-top"
                                             alt="Página Fairlight de DaVinci Resolve"
                                         />
