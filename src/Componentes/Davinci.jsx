@@ -1,17 +1,42 @@
-
 import { useState } from "react";
 
 function Davinci() {
+    const herramientas = [
+        {
+            nombre: "EDIT",
+            icono: "bi-scissors",
+            descripcion:
+                "Permite cortar, organizar y editar los clips dentro de una línea de tiempo."
+        },
+        {
+            nombre: "COLOR",
+            icono: "bi-palette",
+            descripcion:
+                "Incluye herramientas para realizar correcciones y ajustes de color."
+        },
+        {
+            nombre: "FUSION",
+            icono: "bi-stars",
+            descripcion:
+                "Permite trabajar con efectos visuales y composición."
+        },
+        {
+            nombre: "FAIRLIGHT",
+            icono: "bi-soundwave",
+            descripcion:
+                "Está orientado al trabajo y edición del audio."
+        }
+    ];
 
     const [mostrarInfo, setMostrarInfo] = useState(false);
-
+    const [herramientaSeleccionada, setHerramientaSeleccionada] =
+        useState("EDIT");
     return (
         <section id="davinci" className="py-5 davinci-section">
 
             <div className="container">
 
                 <div className="text-center mb-5">
-
                     <p className="section-subtitle">
                         MI PROGRAMA PRINCIPAL Y FAVORITO QUE ESTOY APRENDIENDO A UTILIZAR
                     </p>
@@ -29,90 +54,91 @@ function Davinci() {
 
                 <div className="row g-4">
 
-                    <div className="col-md-6 col-lg-3">
+                    {herramientas.map((herramienta) => (
 
-                        <div className="card davinci-card h-100">
+                        <div
+                            className="col-md-6 col-lg-3"
+                            key={herramienta.nombre}
+                        >
+                            <div
+                                className={`card davinci-card h-100 ${
+                                    herramientaSeleccionada === herramienta.nombre
+                                        ? "active"
+                                        : ""
+                                }`}
+                                onClick={() =>
+                                    setHerramientaSeleccionada(
+                                        herramienta.nombre
+                                    )
+                                }
+                            >
+                                <div className="card-body">
 
-                            <div className="card-body">
+                                    <i
+                                        className={`bi ${herramienta.icono}`}
+                                    ></i>
 
-                                <i className="bi bi-scissors"></i>
+                                    <h5>{herramienta.nombre}</h5>
 
-                                <h5>EDIT</h5>
-
-                                <p>
-                                    Permite cortar, organizar y editar los
-                                    clips dentro de una línea de tiempo.
-                                </p>
-
+                                    <p>{herramienta.descripcion} </p>
+                                </div>
                             </div>
-
                         </div>
 
-                    </div>
+                    ))}
 
-                    <div className="col-md-6 col-lg-3">
+                </div>
 
-                        <div className="card davinci-card h-100">
+                <div className="selected-tool mt-5">
 
-                            <div className="card-body">
+                    {herramientaSeleccionada === "EDIT" && (
+                        <>
+                            <h3>EDIT</h3>
 
-                                <i className="bi bi-palette"></i>
+                            <p>
+                                En esta sección trabajo con la línea de
+                                tiempo, organizo los clips, realizo cortes
+                                y agrego transiciones para construir el
+                                video.
+                            </p>
+                        </>
+                    )}
 
-                                <h5>COLOR</h5>
+                    {herramientaSeleccionada === "COLOR" && (
+                        <>
+                            <h3>COLOR</h3>
 
-                                <p>
-                                    Incluye herramientas para realizar
-                                    correcciones y ajustes de color.
-                                </p>
+                            <p>
+                                En Color puedo corregir la imagen, ajustar
+                                la exposición, el contraste y darle una
+                                apariencia determinada al video.
+                            </p>
+                        </>
+                    )}
 
-                            </div>
+                    {herramientaSeleccionada === "FUSION" && (
+                        <>
+                            <h3>FUSION</h3>
 
-                        </div>
+                            <p>
+                                Fusion permite crear efectos visuales,
+                                composiciones y diferentes elementos
+                                gráficos para los proyectos.
+                            </p>
+                        </>
+                    )}
 
-                    </div>
+                    {herramientaSeleccionada === "FAIRLIGHT" && (
+                        <>
+                            <h3>FAIRLIGHT</h3>
 
-                    <div className="col-md-6 col-lg-3">
-
-                        <div className="card davinci-card h-100">
-
-                            <div className="card-body">
-
-                                <i className="bi bi-stars"></i>
-
-                                <h5>FUSION</h5>
-
-                                <p>
-                                    Permite trabajar con efectos visuales
-                                    y composición.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div className="col-md-6 col-lg-3">
-
-                        <div className="card davinci-card h-100">
-
-                            <div className="card-body">
-
-                                <i className="bi bi-soundwave"></i>
-
-                                <h5>FAIRLIGHT</h5>
-
-                                <p>
-                                    Está orientado al trabajo y edición
-                                    del audio.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                            <p>
+                                Fairlight está enfocado en el trabajo con
+                                audio, permitiendo ajustar niveles, efectos
+                                y diferentes elementos de sonido.
+                            </p>
+                        </>
+                    )}
 
                 </div>
 
@@ -139,12 +165,12 @@ function Davinci() {
                         </h4>
 
                         <p>
-                            Una de las características de DaVinci Resolve es que
-                            diferentes procesos de producción audiovisual pueden
-                            realizarse dentro del mismo programa. Esto permite
-                            trabajar con edición, color, efectos y audio sin
-                            necesidad de utilizar un programa diferente para
-                            cada proceso.
+                            Una de las características de DaVinci Resolve es
+                            que diferentes procesos de producción audiovisual
+                            pueden realizarse dentro del mismo programa. Esto
+                            permite trabajar con edición, color, efectos y
+                            audio sin necesidad de utilizar un programa
+                            diferente para cada proceso.
                         </p>
 
                         <div className="mt-4">
@@ -154,17 +180,16 @@ function Davinci() {
                             </h5>
 
                             <div className="text-center">
-
                                 <img
                                     src="/proyectoreact/inicio.jpg"
                                     className="img-fluid rounded shadow davinci-main-image"
                                     alt="Pantalla inicial de DaVinci Resolve"
                                 />
-
                             </div>
 
                             <p className="text-center mt-2">
-                                Pantalla que aparece al iniciar DaVinci Resolve.
+                                Pantalla que aparece al iniciar DaVinci
+                                Resolve.
                             </p>
 
                         </div>
@@ -194,8 +219,9 @@ function Davinci() {
                                             </h6>
 
                                             <p className="card-text">
-                                                Área donde se realiza la edición,
-                                                organización y montaje de los clips.
+                                                Área donde se realiza la
+                                                edición, organización y
+                                                montaje de los clips.
                                             </p>
 
                                         </div>
@@ -222,40 +248,31 @@ function Davinci() {
 
                                             <p className="card-text">
                                                 Área utilizada para realizar
-                                                correcciones y ajustes de color.
+                                                correcciones y ajustes de
+                                                color.
                                             </p>
-
                                         </div>
-
                                     </div>
-
                                 </div>
 
                                 <div className="col-md-6 col-lg-3">
-
                                     <div className="card davinci-image-card h-100">
-
                                         <img
                                             src="/proyectoreact/fusion.jpg"
                                             className="card-img-top"
                                             alt="Página Fusion de DaVinci Resolve"
                                         />
-
                                         <div className="card-body">
 
-                                            <h6 className="card-title">
-                                                Fusion
-                                            </h6>
+                                            <h6 className="card-title"> Fusion </h6>
 
                                             <p className="card-text">
-                                                Área destinada a efectos visuales,
-                                                composición y gráficos.
+                                                Área destinada a efectos
+                                                visuales, composición y
+                                                gráficos.
                                             </p>
-
                                         </div>
-
                                     </div>
-
                                 </div>
 
                                 <div className="col-md-6 col-lg-3">
@@ -276,7 +293,8 @@ function Davinci() {
 
                                             <p className="card-text">
                                                 Área enfocada en la edición,
-                                                mezcla y procesamiento del audio.
+                                                mezcla y procesamiento del
+                                                audio.
                                             </p>
                                         </div>
                                     </div>
@@ -285,9 +303,10 @@ function Davinci() {
                         </div>
                     </div>
                 )}
+
             </div>
+
         </section>
     );
 }
-
 export default Davinci;

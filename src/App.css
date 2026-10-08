@@ -50,14 +50,19 @@ body {
     background-color: #e50914;
     color: white;
     padding: 12px 30px;
-    border-radius: 30px;
+    border-radius: 15px;
     border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.15);
 }
 
-.btn-davinci:hover {
-    background-color: #b20710;
-    color: white;
+
+.btn-davinci:active {
+    transform: translateY(0);
 }
+
 
 #edicion {
     background-color: #181818;
@@ -110,7 +115,7 @@ body {
     background-color: #222222;
     color: white;
     border: 1px solid #333333;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .davinci-card i {
@@ -178,6 +183,8 @@ body {
 .davinci-image-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    border-color: #e50914;
+    border-width: 2px;
 }
 
 .davinci-image-card img {
@@ -270,3 +277,91 @@ body {
 .footer-copy {
     font-size: 0.85rem;
 }
+
+
+.section-subtitle {
+    color: #e50914;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.davinci-section h2,
+.editors-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #aaaaaa;
+    line-height: 1.8;
+}
+
+
+.editor-card,
+.davinci-card {
+    overflow: hidden;
+    position: relative;
+}
+
+.editor-card::before,
+.davinci-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #e50914;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.editor-card:hover::before,
+.davinci-card:hover::before {
+    transform: scaleX(1);
+    border-color: #e50914;
+}
+
+.editor-card .card-body,
+.davinci-card .card-body {
+    padding: 30px 25px;
+}
+
+a .nav-link {
+    color: #dddddd !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f5f3f3 !important;
+    background-color: #3f191b;
+    padding: 12px 30px;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.15);
+}
+
+.davinci-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.davinci-card:hover {
+    transform: translateY(-6px);
+}
+
+.davinci-card.active {
+    border: 2px solid #e50914;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.35);
+    transform: translateY(-6px);
+}
+
